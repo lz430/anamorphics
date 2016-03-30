@@ -1,0 +1,30 @@
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/* -------------------------------------- *\
+    Header
+\* -------------------------------------- */
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Montserrat', sans-serif;
+}
+
+header .col-lg-6{
+  padding:30px 15px;
+}
+
+header h1{
+  font-family: 'Montserrat', sans-serif;
+}
+header .col-lg-6 a{
+  display: inline-block;
+}
+
+.shadow{
+  background:url(../images/bg-header-shadow.png) no-repeat center center;
+  height:80px;
+}
+
+.navbar-default{
+  background-color: transparent;
+  border-color: transparent;
+}
