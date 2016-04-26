@@ -23,5 +23,11 @@ $(document).ready(function(){
     asNavFor: '.gallery-main',
   });
 
+  // Slides inside of carousel
+  $(function() {
+    $('.rslides').responsiveSlides({
+      pager: true
+    });
+  });
 });
   
