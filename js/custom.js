@@ -1,10 +1,8 @@
 $(document).ready(function(){
-  $('li.dropdown').addClass('open');
-  $('.dropdown.keep-open').on({
-    "shown.bs.dropdown": function() { this.closable = false; },
-    "click":             function() { this.closable = true; },
-    "hide.bs.dropdown":  function() { return this.closable; }
-});
+  $('li.dropdown.open').addClass('open');
+  $('li.dropdown.open').on('hide.bs.dropdown', function () {
+    return false;
+  });
 
   $('li.dropdown a').click(function(){
     $(this).toggleClass('active');
