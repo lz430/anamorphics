@@ -176,12 +176,12 @@ header [class*="col-lg-"] a {
 .dropdown-menu li:last-of-type {
     float: right;
 }
-
+.dropdown-menu>li>a:hover{
+  color:#00a99d;
+}
 .dropdown-menu>li>a:focus, 
-.dropdown-menu>li>a:hover,
 .dropdown-menu>li>a.active,
 .dropdown-menu>.active>a, 
-.dropdown-menu>.active>a:hover, 
 .dropdown-menu>.active>a:focus{
   background-color:#00a99d;
   color:#fff;
