@@ -24,7 +24,13 @@ $(document).ready(function(){
   // Slides inside of carousel
   $(function() {
     $('.rslides').responsiveSlides({
-      pager: true
+      auto: false,            
+      pager: true,           
+      pause: true,            
+      nav: true,  //displays prevText and nextText
+      pauseControls: true,    
+      prevText: "Previous",   
+      nextText: "Next"
     });
   });
 });
