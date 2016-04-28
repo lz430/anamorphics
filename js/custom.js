@@ -1,8 +1,21 @@
 $(document).ready(function(){
-  $('li.dropdown.open').addClass('open');
-  $('li.dropdown.open').on('hide.bs.dropdown', function () {
-    return false;
-  });
+
+  function dropDownOpen(){
+    var bodyClass   = $('body').attr('class').toUpperCase();
+    var menuItem    = $('li.dropdown > a.active');
+    var menuText    = $('li.dropdown > a.active').text().toUpperCase();
+
+    if(bodyClass === menuText){
+      $(menuItem).parent().addClass('open');
+      $('li.dropdown.open').on({
+        "shown.bs.dropdown": function() { this.closable = false; },
+        "click":             function() { this.closable = true; },
+        "hide.bs.dropdown":  function() { return this.closable; }
+      });
+    }
+  }
+  
+  dropDownOpen();
 
   $('li.dropdown a').click(function(){
     $(this).toggleClass('active');
