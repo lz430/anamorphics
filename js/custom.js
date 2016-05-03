@@ -1,50 +1,57 @@
 $(document).ready(function(){
 
-  function dropDownOpen(){
-    var bodyClass      = $('body').attr('class').toUpperCase();
-    var menuItem       = $('li.dropdown > a.active');
-    var menuText       = $('li.dropdown > a.active').text().toUpperCase();
+	
+	//// -------- Navigation Large Screens
+	$('#explore-trigger').click(function() {
+		$( '#explore-trigger').addClass( 'on' );
+		$( '#sample-trigger').removeClass( 'on' );
+		$( '#analyze-trigger').removeClass( 'on' );
+		$( '#explore' ).fadeIn( 400, "linear");
+		$( '#sample' ).fadeOut( 400, "linear");
+		$( '#analyze' ).fadeOut( 400, "linear");
+	});
+	$('#sample-trigger').click(function() {
+		$( '#explore-trigger').removeClass( 'on' );
+		$( '#sample-trigger').addClass( 'on' );
+		$( '#analyze-trigger').removeClass( 'on' );
+		$( '#explore' ).fadeOut( 400, "linear");
+		$( '#sample' ).fadeIn( 400, "linear");
+		$( '#analyze' ).fadeOut( 400, "linear");
+	});
+	$('#analyze-trigger').click(function() {
+		$( '#explore-trigger').removeClass( 'on' );
+		$( '#sample-trigger').removeClass( 'on' );
+		$( '#analyze-trigger').addClass( 'on' );
+		$( '#explore' ).fadeOut( 400, "linear");
+		$( '#sample' ).fadeOut( 400, "linear");
+		$( '#analyze' ).fadeIn( 400, "linear");
+	});
 
-    if(bodyClass === menuText){
-      var menuItemParent = $('li.dropdown > a.active').parent();
+	//// -------- Navigation Small Screens
+	$('#explore-trigger-sm').click(function() {
+		$( '#explore-trigger-sm').addClass( 'on' );
+		$( '#sample-trigger-sm').removeClass( 'on' );
+		$( '#analyze-trigger-sm').removeClass( 'on' );
+		$( '#explore-sm' ).slideDown( 400, "linear");
+		$( '#sample-sm' ).slideUp( 400, "linear");
+		$( '#analyze-sm' ).slideUp( 400, "linear");
+	});
+	$('#sample-trigger-sm').click(function() {
+		$( '#explore-trigger-sm').removeClass( 'on' );
+		$( '#sample-trigger-sm').addClass( 'on' );
+		$( '#analyze-trigger-sm').removeClass( 'on' );
+		$( '#explore-sm' ).slideUp( 400, "linear");
+		$( '#sample-sm' ).slideDown( 400, "linear");
+		$( '#analyze-sm' ).slideUp( 400, "linear");
+	});
+	$('#analyze-trigger-sm').click(function() {
+		$( '#explore-trigger-sm').removeClass( 'on' );
+		$( '#sample-trigger-sm').removeClass( 'on' );
+		$( '#analyze-trigger-sm').addClass( 'on' );
+		$( '#explore-sm' ).slideUp( 400, "linear");
+		$( '#sample-sm' ).slideUp( 400, "linear");
+		$( '#analyze-sm' ).slideDown( 400, "linear");
+	});
 
-      $(menuItem).parent().addClass('open');
-      $(menuItem).parent().on('hide.bs.dropdown', function () {
-        return false;
-      });
-    }
-  }
-  
-  dropDownOpen();
 
-  $('li.dropdown a').click(function(){
-    $(this).toggleClass('active');
-  });
-
-  // 1st carousel, main
-  $('.gallery-main').flickity({
-    // options
-    cellAlign: 'left',
-    contain: true,
-    imagesLoaded: true
-  });
-
-  // 2nd carousel, navigation
-  $('.gallery-top-bar').flickity({
-    asNavFor: '.gallery-main',
-  });
-
-  // Slides inside of carousel
-  $(function() {
-    $('.rslides').responsiveSlides({
-      auto: false,            
-      pager: true,           
-      pause: true,            
-      nav: true,  //displays prevText and nextText
-      pauseControls: true,    
-      prevText: "Previous",   
-      nextText: "Next"
-    });
-  });
 });
-  
